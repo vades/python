@@ -1,2 +1,3 @@
-from config import config
-print(config.config)
+from settings.config import cfg
+
+print(cfg.app)
