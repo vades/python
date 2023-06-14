@@ -162,7 +162,9 @@ cython_debug/
 # VS Code
 .history
 .vscode
+_download
 _practice
 _input
 _output
 _project
+HINTS.md
