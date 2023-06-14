@@ -1,8 +1,12 @@
-from settings.config import cfg
-from apps.ytb import ytbhandler
+import os
+from dotenv import dotenv_values
 
-ytb = ytbhandler.YtbHandler('Gtp6WkuoClM')
-ytb.download_video(
+config = {
+    # load shared development variables
+    **dotenv_values("environments/.env.shared"),
+    **dotenv_values("environments/.env"),  # load sensitive variables
+    **os.environ,  # override loaded values with environment variables
+}
 
-)
-# print(cfg.app)
+
+print(config['APP_NAME'])
