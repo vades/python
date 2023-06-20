@@ -39,9 +39,13 @@ def upload_directory_to_git(directory_path, repository_url, branch_name):
             shutil.copytree(file_path, destination_path)
 
     # Commit and push changes to the branch
-    repo.git.add("--all")
-    repo.git.commit("-m", "Upload directory")
-    repo.git.push("origin", branch_name)
+    # Check if there are changes to commit
+    if repo.is_dirty():
+        repo.git.add("--all")
+        repo.git.commit("-m", "Upload directory")
+        repo.git.push("origin", branch_name)
+    else:
+        print("No changes to commit.")
 
     # Clean up temporary repository directory
     shutil.rmtree("temp_repo")
