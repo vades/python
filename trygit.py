@@ -14,7 +14,7 @@ def change_permissions_recursive(path, mode):
 def upload_directory_to_git(directory_path, repository_url, branch_name):
     # Clone the repository
     repo = Repo.clone_from(repository_url, "temp_repo")
-    change_permissions_recursive('temp_repo', 0o777)
+    #change_permissions_recursive('temp_repo', 0o777)
     # Change to the desired branch
     repo.git.checkout(branch_name)
 
