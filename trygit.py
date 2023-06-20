@@ -48,7 +48,7 @@ def upload_directory_to_git(directory_path, repository_url, branch_name):
         print("No changes to commit.")
 
     # Clean up temporary repository directory
-    #shutil.rmtree("temp_repo")
+    shutil.rmtree("temp_repo")
 
 
 # Example usage
