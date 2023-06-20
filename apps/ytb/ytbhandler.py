@@ -1,7 +1,6 @@
 from pytube import YouTube
-from pytube.exceptions import PytubeError, RegexMatchError, VideoUnavailable, MembersOnly, RecordingUnavailable, LiveStreamError
+from pytube.exceptions import PytubeError
 import moviepy.editor as mp
-# from moviepy.editor import MoviePyError
 from slugify import slugify
 
 
