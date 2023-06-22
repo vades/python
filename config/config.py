@@ -18,7 +18,7 @@ config_dict = {
     'secret_key': env_dict['SECRET_KEY'],
     'blogs': [{
         'source_folder': r'G:/My Drive/Shared/KB/Blogs/Cheat Sheets',
-        'destination_folder': r'_download/cheat_sheets/docs',
+        'destination_folder': r'_download/cheatsheets/docs',
         'dirs_exist_ok': True
     }],
 }
