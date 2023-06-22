@@ -21,6 +21,15 @@ config_dict = {
         'destination_folder': r'_download/cheatsheets/docs',
         'dirs_exist_ok': True
     }],
+    'gits': {
+        'cheatsheets': {
+            'repository_url': 'https://github.com/vades/cheatsheets',
+            'branch_name': 'develop',
+            'destination_folder': '_download/cheatsheets',
+        },
+    },
 }
-
-config = NestedNamespace(config_dict)
+try:
+    config = NestedNamespace(config_dict)
+except Exception as e:
+    print("An error occurred while creating config:", e)
