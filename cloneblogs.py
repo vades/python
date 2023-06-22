@@ -5,9 +5,6 @@ from apps.git.githandler import GitHandler
 
 def clone_cheatsheets():
 
-    repository_url = "https://github.com/vades/cheatsheets"
-    branch_name = "develop"
-    destination_folder = "_download/cheatsheets"
     print('\n*********** Initializing GitHandler ***********')
     git = GitHandler(config.git.cheatsheets.repository_url,
                      config.git.cheatsheets.branch_name, config.git.cheatsheets.destination_folder)
