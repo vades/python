@@ -2,6 +2,7 @@
 import logging
 from rich.logging import RichHandler
 from filelogger import FileLogger
+
 # Create console handler and set its level
 FORMAT = "%(message)s"
 logging.basicConfig(
@@ -9,14 +10,6 @@ logging.basicConfig(
 )
 
 log = logging.getLogger("rich")
-
-""" # Configure logger for file output
-file_logger = logging.getLogger("file_logger")
-file_logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("logs/app.log")
-file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-file_handler.setFormatter(file_formatter)
-file_logger.addHandler(file_handler) """
 
 
 class Logger:
