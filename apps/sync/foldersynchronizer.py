@@ -4,9 +4,10 @@ import shutil
 
 
 class FolderSynchronizer:
-    def __init__(self, source_folder, destination_folder):
+    def __init__(self, source_folder: str, destination_folder: str, delete_files=False):
         self.source_folder = source_folder
         self.destination_folder = destination_folder
+        self.delete_files = delete_files
 
     def synchronize_folders(self):
         """
@@ -15,7 +16,8 @@ class FolderSynchronizer:
         """
         try:
             self.synchronize_files()
-            self.delete_missing_files()
+            if (self.delete_files):
+                self.delete_missing_files()
             self.synchronize_subfolders()
         except Exception as e:
             print("An error occurred during folder synchronization:", e)
