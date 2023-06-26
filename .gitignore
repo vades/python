@@ -162,13 +162,11 @@ cython_debug/
 # VS Code
 .history
 .vscode
-<<<<<<< HEAD
-=======
 _download
 _practice
->>>>>>> fc16cb0b32af3ee3b52c285923d9640dde4ad32b
 _input
 _output
 _project
 _download
 HINTS.md
+ffmpeg.exe

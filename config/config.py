@@ -15,7 +15,21 @@ config_dict = {
         'video_url': 'https://www.youtube.com/watch?v=',
         'download_dir': './_download/ytb',
     },
-    'secret_key': env_dict['SECRET_KEY']
+    'secret_key': env_dict['SECRET_KEY'],
+    'blogs': [{
+        'source_folder': r'G:/My Drive/Shared/KB/Blogs/Cheat Sheets',
+        'destination_folder': r'_download/cheatsheets/docs',
+        'dirs_exist_ok': True
+    }],
+    'git': {
+        'cheatsheets': {
+            'repository_url': 'https://github.com/vades/cheatsheets',
+            'branch_name': 'develop',
+            'destination_folder': '_download/cheatsheets',
+        },
+    },
 }
-
-config = NestedNamespace(config_dict)
+try:
+    config = NestedNamespace(config_dict)
+except Exception as e:
+    print("An error occurred while pushing to git:", e)
