@@ -1,7 +1,7 @@
 
 import logging
 from rich.logging import RichHandler
-from filelogger import FileLogger
+from libs.filelogger import FileLogger
 
 # Create console handler and set its level
 FORMAT = "%(message)s"
@@ -94,10 +94,3 @@ class Logger:
         log.exception(message)
         if (file_logger):
             FileLogger.exception(message)
-
-
-# Logger.debug('This is message', True)
-try:
-    print(1 / 0)
-except Exception:
-    Logger.exception('New message', True)

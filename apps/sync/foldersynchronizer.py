@@ -1,6 +1,7 @@
 import os
 import filecmp
 import shutil
+from libs.logger import Logger
 
 
 class FolderSynchronizer:
@@ -20,7 +21,8 @@ class FolderSynchronizer:
                 self.delete_missing_files()
             self.synchronize_subfolders()
         except Exception as e:
-            print("An error occurred during folder synchronization:", e)
+            Logger.exception(
+                'An error occurred during folder synchronization.', True)
 
     def synchronize_files(self):
         """
@@ -28,7 +30,6 @@ class FolderSynchronizer:
         Copies files from source_folder to destination_folder if they don't exist or are different.
         """
         source_contents = os.listdir(self.source_folder)
-
         for item in source_contents:
             source_item = os.path.join(self.source_folder, item)
             destination_item = os.path.join(self.destination_folder, item)
@@ -38,8 +39,8 @@ class FolderSynchronizer:
                     if not os.path.exists(destination_item) or not filecmp.cmp(source_item, destination_item, shallow=False):
                         self.copy_file(source_item)
                 except Exception as e:
-                    print("An error occurred while synchronizing file:", source_item)
-                    print("Error details:", e)
+                    Logger.exception(
+                        'An error occurred while synchronizing file.', True)
 
     def synchronize_subfolders(self):
         """
@@ -59,9 +60,8 @@ class FolderSynchronizer:
                         source_item, destination_item)
                     subfolder_synchronizer.synchronize_folders()
                 except Exception as e:
-                    print(
-                        "An error occurred while synchronizing subfolder:", source_item)
-                    print("Error details:", e)
+                    Logger.exception(
+                        'An error occurred while synchronizing subfolder.', True)
 
     def delete_missing_files(self):
         """
@@ -77,9 +77,8 @@ class FolderSynchronizer:
                 try:
                     self.delete_file(destination_item)
                 except Exception as e:
-                    print("An error occurred while deleting file:",
-                          destination_item)
-                    print("Error details:", e)
+                    Logger.exception(
+                        'An error occurred while deleting file.', True)
 
     def copy_file(self, source):
         """
@@ -87,21 +86,20 @@ class FolderSynchronizer:
         """
         try:
             shutil.copy2(source, self.destination_folder)
-            print(f"Copied file: {source}")
+            Logger.debug(f'Copied file: {source}', True)
         except Exception as e:
-            print("An error occurred while copying file:", source)
-            print("Error details:", e)
+            Logger.exception('An error occurred while copying file.', True)
 
-    def create_directory(directory):
+    def create_directory(self, directory):
         """
         Creates a directory if it doesn't exist.
         """
         try:
             os.makedirs(directory)
-            print(f"Created directory: {directory}")
+            Logger.debug(f'Created directory: {directory}', True)
         except Exception as e:
-            print("An error occurred while creating directory:", directory)
-            print("Error details:", e)
+            Logger.exception(
+                'An error occurred while creating directory.', True)
 
     def delete_file(self, file):
         """
@@ -109,7 +107,6 @@ class FolderSynchronizer:
         """
         try:
             os.remove(file)
-            print(f"Deleted file: {file}")
+            Logger.debug(f'Deleted file: {file}', True)
         except Exception as e:
-            print("An error occurred while deleting file:", file)
-            print("Error details:", e)
+            Logger.exception('An error occurred while deleting file.', True)
