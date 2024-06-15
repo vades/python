@@ -169,7 +169,7 @@ _project
 _download
 
 # Custom
-download
+tmp/old/download
 tmp
-HINTS.md
-ffmpeg.exe
+tmp/old/HINTS.md
+tmp/old/ffmpeg.exe
