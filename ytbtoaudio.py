@@ -1,7 +1,9 @@
 from config.config import config
 from apps.ytb.ytbhandler import YtbHandler
+from pytube import request
 
-video_ids = ['Gtp6WkuoClM', '2cvKpW0E74Y']
+request.default_cache.clear()
+video_ids = ['Gtp6WkuoClM']
 
 
 def ytb_video_to_audio(video_id):
