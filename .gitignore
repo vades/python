@@ -167,10 +167,9 @@ _input
 _output
 _project
 _download
-download
-music
-playlists
-podcasts
+download/
+audio/
+playlists/
 
 # Custom
 tmp/old/download
