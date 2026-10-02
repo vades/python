@@ -166,5 +166,10 @@ _download
 _input
 _output
 _project
-HINTS.md
-ffmpeg.exe
+_download
+
+# Custom
+tmp/old/download
+tmp
+tmp/old/HINTS.md
+tmp/old/ffmpeg.exe
